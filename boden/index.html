@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EPD WebViewer - Raised and Hollow Floor Panels</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-1"></div>
+  <div class="ambient ambient-2"></div>
+
+  <div class="page-shell">
+    <header class="topbar card">
+      <div class="brand-wrap">
+        <h1>EPD WebViewer - Raised and Hollow Floor Panels</h1>
+      </div>
+
+      <div class="header-actions">
+        <a id="epdDownloadBtn" class="action-btn secondary disabled" href="#" aria-disabled="true">Download EPD</a>
+        <a id="reportDownloadBtn" class="action-btn primary disabled" href="#" aria-disabled="true">Download Specific LCA Report</a>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb"></span>
+          </span>
+          <span id="themeLabel">Light mode</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="config-panel card">
+      <div class="filters-grid">
+        <label class="form-field">
+          <span>Floor Type</span>
+          <select id="floorTypeSelect">
+            <option value="">Select floor type</option>
+          </select>
+        </label>
+
+        <label class="form-field">
+          <span>Product Type</span>
+          <select id="productTypeSelect" disabled>
+            <option value="">Select product type</option>
+          </select>
+        </label>
+
+        <label class="form-field">
+          <span>Product Variant</span>
+          <select id="productVariantSelect" disabled>
+            <option value="">Select product variant</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="selectionSummary" class="selection-summary">
+        Choose a floor type to begin.
+      </div>
+    </section>
+
+    <main class="main-layout">
+      <section class="left-column">
+        <article class="card product-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Overview</p>
+              <h3>Product Profile</h3>
+            </div>
+          </div>
+
+          <div class="product-layout">
+            <div class="product-visual-frame">
+              <img id="productImage" src="" alt="Selected product" />
+              <div id="productImagePlaceholder" class="image-placeholder">Product image will appear here</div>
+            </div>
+
+            <div class="product-meta-stack">
+              <div class="meta-card">
+                <span class="meta-kicker">Selected product</span>
+                <h4 id="selectedProductType">—</h4>
+                <p id="selectedProductVariant">Select a product variant to load its profile.</p>
+              </div>
+
+              <div class="meta-pill-grid">
+                <div class="meta-pill">
+                  <span>EPD issue date</span>
+                  <strong id="issueDateValue">—</strong>
+                </div>
+
+                <div class="meta-pill">
+                  <span>EPD valid to</span>
+                  <strong id="validToValue">—</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card technical-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Key Product Details</p>
+              <h3>Technical data</h3>
+            </div>
+          </div>
+
+          <div id="technicalGrid" class="metrics-grid empty-grid">
+            <div class="empty-panel">Technical details will load here.</div>
+          </div>
+        </article>
+
+        <article class="card scenario-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Available scenarios</p>
+              <h3>Scenario Selection</h3>
+            </div>
+          </div>
+
+          <div id="scenarioList" class="scenario-list empty-grid">
+            <div class="empty-panel">Scenario details will appear here.</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="right-column">
+        <article class="card results-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Lifecycle results</p>
+              <h3>Module Results</h3>
+            </div>
+          </div>
+
+          <div class="results-toolbar">
+            <span class="picker-label">Select scenarios to compare</span>
+            <div id="scenarioPicker" class="scenario-picker"></div>
+          </div>
+
+          <div id="resultsLifecycleGrid" class="results-lifecycle-grid empty-grid">
+            <div class="empty-panel">Choose a product variant to display lifecycle results.</div>
+          </div>
+
+          <div class="results-chart-block">
+            <div class="module-chart-head">
+              <p class="section-kicker">Dynamic graph</p>
+              <h3>Module Bar Graph</h3>
+            </div>
+
+            <div id="moduleBarChart" class="module-bar-chart empty-grid">
+              <div class="empty-panel">Choose a product variant to display the graph.</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

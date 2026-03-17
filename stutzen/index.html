@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stuetzen CO2 / GWP Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-1"></div>
+  <div class="ambient ambient-2"></div>
+
+  <div class="page-shell">
+    <header class="topbar card">
+      <div class="brand-wrap">
+        <h1>Stuetzen CO2 / GWP Calculator</h1>
+      </div>
+
+      <div class="header-actions">
+        <a id="epdDownloadBtn" class="action-btn secondary disabled" href="#" aria-disabled="true">Download EPD</a>
+        <a id="reportDownloadBtn" class="action-btn primary disabled" href="#" aria-disabled="true">Download Specific LCA Report</a>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb"></span>
+          </span>
+          <span id="themeLabel">Light mode</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="config-panel card">
+      <div class="filters-grid">
+        <label class="form-field">
+          <span>Classification</span>
+          <select id="classificationSelect">
+            <option value="">Select classification</option>
+          </select>
+        </label>
+
+        <label class="form-field">
+          <span>Pedestal Type</span>
+          <select id="pedestalSelect" disabled>
+            <option value="">Select pedestal type</option>
+          </select>
+        </label>
+
+        <label class="form-field">
+          <span>Variant</span>
+          <select id="variantSelect" disabled>
+            <option value="">Select variant</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="selectionSummary" class="selection-summary hidden-until-ready">
+        Configuration loaded.
+      </div>
+    </section>
+
+    <main class="main-layout hidden-until-ready">
+      <section class="left-column">
+        <article class="card product-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Overview</p>
+              <h3>Product Profile</h3>
+            </div>
+          </div>
+
+          <div class="product-layout">
+            <div class="product-visual-frame">
+              <img id="productImage" src="" alt="Selected product" />
+              <div id="productImagePlaceholder" class="image-placeholder">
+                Product image will appear here
+              </div>
+            </div>
+
+            <div class="product-meta-stack">
+              <div class="meta-card">
+                <span class="meta-kicker">Selected product</span>
+                <h4 id="selectedProductType">—</h4>
+                <p id="selectedProductVariant">
+                  Choose classification, pedestal type and variant to load the dashboard.
+                </p>
+              </div>
+
+              <div class="meta-pill-grid">
+                <div class="meta-pill">
+                  <span>Issue date</span>
+                  <strong id="issueDateValue">—</strong>
+                </div>
+
+                <div class="meta-pill">
+                  <span>Valid to</span>
+                  <strong id="validToValue">—</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card technical-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Key Product Details</p>
+              <h3>Technical data</h3>
+            </div>
+          </div>
+
+          <div id="technicalGrid" class="metrics-grid empty-grid">
+            <div class="empty-panel">Technical details will load here.</div>
+          </div>
+        </article>
+
+        <article class="card scenario-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Scenario</p>
+              <h3>Available scenario</h3>
+            </div>
+          </div>
+
+          <div id="scenarioList" class="scenario-list empty-grid">
+            <div class="empty-panel">Scenario details will appear here.</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="right-column">
+        <article class="card results-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Lifecycle results</p>
+              <h3>Module Results</h3>
+            </div>
+          </div>
+
+          <div class="results-toolbar">
+            <span class="picker-label">Scenario</span>
+            <div id="scenarioPicker" class="scenario-picker"></div>
+          </div>
+
+          <div id="resultsLifecycleGrid" class="results-lifecycle-grid empty-grid">
+            <div class="empty-panel">
+              Choose classification, pedestal type and variant to display lifecycle results.
+            </div>
+          </div>
+
+          <div class="results-chart-block">
+            <div class="module-chart-head">
+              <p class="section-kicker">Dynamic graph</p>
+              <h3>Module Bar Graph</h3>
+            </div>
+
+            <div id="moduleBarChart" class="module-bar-chart empty-grid">
+              <div class="empty-panel">
+                Choose classification, pedestal type and variant to display the graph.
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
